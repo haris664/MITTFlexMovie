@@ -37,7 +37,3 @@ class Movies extends Component {
 }
 
 export default Movies;
-
-// data-toggled={this.props.favoriteMovies.includes(
-//   this.props.movie.id
-// )}
