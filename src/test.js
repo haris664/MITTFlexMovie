@@ -7,23 +7,18 @@ class App extends Component {
   apiKey = "d1ea5f4bdeb40b85cde2be1d5783522c";
   host = "https://api.themoviedb.org/3/search/movie";
   moviesId = 0;
+  tempArray = [];
 
   state = {
     movies: [],
-    likeMovie: [],
+    likedMovie: [],
   };
 
   inputMovie = (movie) => {
     fetch(
       `${this.host}?api_key=${this.apiKey}&language=en-US&page=1&include_adult=false&query=${movie}&total_pages=1`
     )
-      .then((resp) => {
-        if (resp.ok) {
-          return resp.json();
-        } else {
-          throw new Error("something went wrong");
-        }
-      })
+      .then((response) => response.json())
       .then((movies) => {
         let movieArray = [];
         movies.results.forEach((movie) => {
@@ -37,34 +32,23 @@ class App extends Component {
             liked: "",
           });
         });
+        this.tempArray = [...movieArray];
         this.setState({ movies: movieArray });
       });
   };
 
-  // handleLike = (movie) => {
-  //   const likedMovie = [...this.state.movies];
-  //   const index = likedMovie.indexOf(movie);
-  //   likedMovie[index] = { ...movie };
-  //   likedMovie[index].liked = !likedMovie[index].liked;
-  //   //this.setState({ movies: likedMovie });
-  //   this.setState({ likeMovie: likedMovie });
-  // };
-
   handleLike = (movie) => {
-    this.setState((prevState) => {
-      if (prevState.likeMovie.includes(movie.id)) {
-        return {
-          likeMovie: prevState.likeMovie.filter(
-            (movieID) => movieID !== movie.id
-          ),
-        };
-      } else {
-        return { likeMovie: [...prevState.likeMovie, movie.id] };
-      }
-    });
+    let likedMovie = [...this.state.movies];
+    const index = likedMovie.indexOf(movie);
+    likedMovie[index] = { ...movie };
+    likedMovie[index].liked = !likedMovie[index].liked;
+    this.setState({ movies: likedMovie });
+    this.setState({ likedMovie });
+    console.log(this.tempArray);
   };
 
   render() {
+    //console.log(this.state.movies);
     return (
       <>
         <header className="header">
@@ -85,7 +69,7 @@ class App extends Component {
                 <Movies
                   movie={movie}
                   key={movie.id}
-                  favoriteMovies={this.state.likeMovie}
+                  liked={movie.liked}
                   onClick={() => this.handleLike(movie)}
                 />
               ))}
