@@ -15,9 +15,9 @@ HTML,CSS,JavaScript,React
  <li>Clicking on the icon of an "unmarked" movie will "mark" it, while clicking on the icon of a movie that is already "marked" will "unmark" it.</li>
  <li>Performing additional searches will NOT cause the app to lose it's memory of what which movies have been marked.However this information will be reset upon reloding the page.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Available Scripts
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
 
 In the project directory, you can run:
 
