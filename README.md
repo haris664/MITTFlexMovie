@@ -1,3 +1,20 @@
+# MITTFLIX Movie App
+
+# Technologies
+
+HTML,CSS,JavaScript,React
+
+# Specification
+
+<ul>
+ <li>This app  allows users to search for movies and heart them.</li>
+ <li>Users can search for movies using the search form at the top of the page</li>
+ <li>Searches are performed against the TMDB movie API </li>
+ <li>Users can hover over an image, and view it's overview, title, and vote_average, as well as a clickable heart icon</li>
+ <li>Users can click on icon to add this move to their list.</li>
+ <li>Clicking on the icon of an "unmarked" movie will "mark" it, while clicking on the icon of a movie that is already "marked" will "unmark" it.</li>
+ <li>Performing additional searches will NOT cause the app to lose it's memory of what which movies have been marked.However this information will be reset upon reloding the page.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -66,3 +83,5 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+#
